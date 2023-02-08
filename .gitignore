@@ -1,0 +1,7 @@
+# Visual Studio Code files
+.vscode
+
+# Build results
+[Dd]ebug/
+[Bb]in/
+[Oo]bj/
