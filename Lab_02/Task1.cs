@@ -162,7 +162,7 @@ public class Task1
 
 		double[] result = ArraySort<double>.InsertionSort(
 				numbers,
-				(double a, double b) => { return a > b; }
+				(a, b) => a > b
 			); // Результат сортування
 
 		Console.Clear();
