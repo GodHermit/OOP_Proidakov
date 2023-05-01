@@ -7,8 +7,8 @@ public class CrossProductTest
 	[Fact]
 	public void PassingCalculationTest()
 	{
-		LinkedList<int> vector1 = new(new int[] { 1, 2, 3 }); // First vector
-		LinkedList<int> vector2 = new(new int[] { 4, 5, 6 }); // Second vector
+		int[] vector1 = new int[] { 1, 2, 3 }; // First vector
+		int[] vector2 = new int[] { 4, 5, 6 }; // Second vector
 
 		TensorProduct tensorProduct = new(); // Tensor product object
 		tensorProduct.setVectors(vector1, vector2); // Set vectors for tensor product
@@ -26,8 +26,8 @@ public class CrossProductTest
 	[Fact]
 	public void PassingToStringTest()
 	{
-		LinkedList<int> vector1 = new(new int[] { 1, 2, 3 }); // First vector
-		LinkedList<int> vector2 = new(new int[] { 4, 5, 6 }); // Second vector
+		int[] vector1 = new int[] { 1, 2, 3 }; // First vector
+		int[] vector2 = new int[] { 4, 5, 6 }; // Second vector
 
 		TensorProduct tensorProduct = new(); // Tensor product object
 		tensorProduct.setVectors(vector1, vector2); // Set vectors for tensor product

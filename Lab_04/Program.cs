@@ -10,9 +10,8 @@ class Program
 		callback?.Invoke();
 	}
 
-	private static void InputNumberList(out LinkedList<int>? result)
+	private static void InputNumberList(out int[]? result)
 	{
-		result = new();
 		Console.Write("\nУведіть розмір вектора: ");
 
 		if (!int.TryParse(Console.ReadLine(), out int size) && size <= 0)
@@ -23,6 +22,7 @@ class Program
 			return;
 		}
 
+		result = new int[size];
 		Console.Write("Згенерувати випадкові числа? (y/n): ");
 
 		switch (Console.ReadLine())
@@ -32,7 +32,7 @@ class Program
 
 				for (int i = 0; i < size; i++)
 				{
-					result.AddLast(random.Next(1, 10));
+					result[i] = random.Next(1, 10);
 				}
 				break;
 			case "n":
@@ -48,7 +48,7 @@ class Program
 						return;
 					}
 
-					result.AddLast(number);
+					result[i] = number;
 				}
 				break;
 			default:
@@ -64,8 +64,8 @@ class Program
 		Console.Title = "Лабораторна робота №4";
 		Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-		InputNumberList(out LinkedList<int>? vector1);
-		InputNumberList(out LinkedList<int>? vector2);
+		InputNumberList(out int[]? vector1);
+		InputNumberList(out int[]? vector2);
 
 		if (vector1 is null || vector2 is null)
 		{

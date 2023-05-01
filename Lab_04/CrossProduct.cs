@@ -2,15 +2,15 @@ namespace Lab_04;
 
 public class TensorProduct
 {
-	private LinkedList<int> _vector1 = new();
-	private LinkedList<int> _vector2 = new();
+	private int[]? _vector1;
+	private int[]? _vector2;
 
     /// <summary>
     /// Set vectors for tensor product
     /// </summary>
     /// <param name="vector1">First vector</param>
     /// <param name="vector2">Second vector</param>
-	public void setVectors(LinkedList<int> vector1, LinkedList<int> vector2)
+	public void setVectors(int[] vector1, int[] vector2)
 	{
 		_vector1 = vector1;
 		_vector2 = vector2;
@@ -22,6 +22,9 @@ public class TensorProduct
     /// <returns>Matrix of tensor product</returns>
 	public LinkedList<LinkedList<int>> Calculate()
 	{
+        if (_vector1 is null || _vector2 is null) // Check if vectors are set
+            throw new NullReferenceException("Vectors are not set!");
+
         LinkedList<LinkedList<int>> result = new(); // Matrix of tensor product
 
         foreach (int item1 in _vector1) // Loop for each item in first vector
