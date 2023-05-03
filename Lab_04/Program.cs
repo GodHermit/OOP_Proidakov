@@ -2,32 +2,26 @@
 
 class Program
 {
-
-	private static void PrintError(string errorMessage, Action? callback = null)
-	{
-		Console.Clear();
-		Console.WriteLine($"{errorMessage}\n");
-		callback?.Invoke();
-	}
-
 	private static void InputNumberList(out int[]? result)
 	{
-		Console.Write("\nУведіть розмір вектора: ");
-
-		if (!int.TryParse(Console.ReadLine(), out int size) && size <= 0)
-		{
-			Console.Clear();
-			Console.WriteLine("Уведіть число!\n");
-			InputNumberList(out result);
-			return;
-		}
-
-		result = new int[size];
 		Console.Write("Згенерувати випадкові числа? (y/n): ");
+		result = new int[0];
 
 		switch (Console.ReadLine())
 		{
 			case "y":
+				Console.Write("Уведіть розмір вектора: ");
+
+				if (!int.TryParse(Console.ReadLine(), out int size) && size <= 0)
+				{
+					Console.Clear();
+					Console.WriteLine("Уведіть число!\n");
+					InputNumberList(out result);
+					return;
+				}
+
+				result = new int[size];
+
 				Random random = new();
 
 				for (int i = 0; i < size; i++)
@@ -36,19 +30,24 @@ class Program
 				}
 				break;
 			case "n":
-				for (int i = 0; i < size; i++)
+				try
 				{
-					Console.Write($"Уведіть {i + 1} число: ");
+					Console.Write("Уведіть ім'я файлу: ");
+					string vector1 = File.ReadAllText($@"{Environment.CurrentDirectory}/{Console.ReadLine()}");
 
-					if (!int.TryParse(Console.ReadLine(), out int number))
+					result = new int[vector1.Split(' ').Length];
+
+					for (int i = 0; i < vector1.Split(' ').Length; i++)
 					{
-						Console.Clear();
-						Console.WriteLine("Уведіть число!\n");
-						InputNumberList(out result);
-						return;
+						result[i] = int.Parse(vector1.Split(' ')[i]);
 					}
-
-					result[i] = number;
+				}
+				catch (System.Exception)
+				{
+					Console.Clear();
+					Console.WriteLine("Файл не знайдено!\n");
+					InputNumberList(out result);
+					return;
 				}
 				break;
 			default:
@@ -57,6 +56,7 @@ class Program
 				InputNumberList(out result);
 				return;
 		}
+		Console.WriteLine();
 	}
 
 	static void Main(string[] args)
@@ -74,8 +74,7 @@ class Program
 		}
 
 		TensorProduct tensorProduct = new();
-		tensorProduct.setVectors(vector1, vector2);
-		tensorProduct.Calculate();
+		tensorProduct.SetVectors(vector1, vector2);
 
 		Console.Clear();
 		Console.WriteLine($"Вектор 1:\n{string.Join("\n", vector1)}");

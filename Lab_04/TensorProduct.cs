@@ -10,7 +10,7 @@ public class TensorProduct
     /// </summary>
     /// <param name="vector1">First vector</param>
     /// <param name="vector2">Second vector</param>
-	public void setVectors(int[] vector1, int[] vector2)
+	public void SetVectors(int[] vector1, int[] vector2)
 	{
 		_vector1 = vector1;
 		_vector2 = vector2;

@@ -11,7 +11,7 @@ public class CrossProductTest
 		int[] vector2 = new int[] { 4, 5, 6 }; // Second vector
 
 		TensorProduct tensorProduct = new(); // Tensor product object
-		tensorProduct.setVectors(vector1, vector2); // Set vectors for tensor product
+		tensorProduct.SetVectors(vector1, vector2); // Set vectors for tensor product
 
 		Assert.Equal(
 			new LinkedList<LinkedList<int>>(new[] { // Expected result
@@ -30,7 +30,7 @@ public class CrossProductTest
 		int[] vector2 = new int[] { 4, 5, 6 }; // Second vector
 
 		TensorProduct tensorProduct = new(); // Tensor product object
-		tensorProduct.setVectors(vector1, vector2); // Set vectors for tensor product
+		tensorProduct.SetVectors(vector1, vector2); // Set vectors for tensor product
 
 		Assert.Equal(
 			"4 5 6\n8 10 12\n12 15 18", // Expected result
